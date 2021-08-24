@@ -19,8 +19,19 @@ def encrypt(key, message):
     return cipher
 
 
+def get_decrypt_key(key):
+    dkey = {}
+    for k in key:
+        dkey[key[k]] = k
+    return dkey
+
+
 key = generate_key()
 print(key)
 message = "THIS IS A TEST"
 cipher = encrypt(key, message)
 print(cipher)
+
+dkey = get_decrypt_key(key)
+message = encrypt(dkey, cipher)
+print(message)
